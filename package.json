@@ -1,0 +1,23 @@
+{
+  "name": "handwritten-code",
+  "version": "1.0.0",
+  "description": "👏补充基础知识并尝试用代码说话🤥",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littleLane/Handwritten-Code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/littleLane/Handwritten-Code/issues"
+  },
+  "homepage": "https://github.com/littleLane/Handwritten-Code#readme",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
+}
