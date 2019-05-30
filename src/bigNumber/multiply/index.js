@@ -1,3 +1,4 @@
+// 大数相乘
 function multiply(a, b) {
   const str1 = String(a).split('').reverse();
   const str2 = String(b).split('').reverse();
