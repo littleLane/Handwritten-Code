@@ -27,6 +27,7 @@ var maxProfit = function(prices) {
 
   // return sum;
 
+  // 最终简化版本
   let sum = 0; // 当前总收入
 
   for (let i = 0, len = prices.length; i < len; i++) {
