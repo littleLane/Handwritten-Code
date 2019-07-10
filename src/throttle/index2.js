@@ -12,7 +12,7 @@ function throttle(fn, time) {
     if (!timer) {
       timer = setTimeout(() => {
         fn.apply(this, args)
-        timer = null;
+        clearTimeout(timer)
       }, time)
     }
   }
