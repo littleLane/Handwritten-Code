@@ -19,5 +19,8 @@
   "homepage": "https://github.com/littleLane/Handwritten-Code#readme",
   "dependencies": {
     "jest": "^24.8.0"
+  },
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
   }
 }
