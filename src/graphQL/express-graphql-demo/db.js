@@ -8,7 +8,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'lane320320JITA',
-  database: 'graphql'
+  database: 'graphql',
+  useConnectionPooling: true
 })
 
 // 定义查询 schema，包含查询数据的类型
@@ -38,7 +39,7 @@ const schema = buildSchema(`
   }
 `)
 
-const fakeDB = {}
+let dataIndex = 2
 
 // 数据源
 const root = {
@@ -48,7 +49,7 @@ const root = {
         if (err) {
           reject(err)
         } else {
-          resolve(data)
+          resolve(data || [])
         }
       })
     })
@@ -56,6 +57,7 @@ const root = {
 
   createAccount({ input }) {
     return new Promise((resolve, reject) => {
+      input.id = dataIndex++
       connection.query('insert into account set ?', input, err => {
         if (err) {
           reject(err)
@@ -76,7 +78,7 @@ const root = {
         }
       })
     })
-  }
+  },
 
   deleteAccount({ id }) {
     return new Promise((resolve, reject) => {
