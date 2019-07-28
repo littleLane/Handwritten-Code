@@ -161,6 +161,7 @@ Promise.all = promises => {
   })
 }
 
+// 一个链式调用和各库兼容性处理的函数
 Promise.promiseResolver = (promise2, x, reslove, reject) => {
   // 防止循环引用
   if (promise2 === x) {
@@ -171,9 +172,12 @@ Promise.promiseResolver = (promise2, x, reslove, reject) => {
   // 标识该方法是否已经被调用
   let called = false
 
+  // 当 x 不为 null，且类型为对象或者函数
   if (x !== null && (typeof x === 'object' || typeof x === 'function')) {
     try {
       const then = x.then
+
+      // thenable 函数，直接调用 then 函数
       if (typeof then === 'function') {
         then.call(x, value => {
           if (called) return
