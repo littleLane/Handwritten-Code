@@ -121,11 +121,32 @@ class Promise {
   }
 
   catch(fn) {
-    this.then(undefined, fn)
+    return this.then(undefined, fn)
+  }
+
+  finally(fn) {
+    const P = this.constructor
+    
+    return this.then(
+      value => P.resolve(fn()).then(() => value),
+      reason => P.resolve(fn()).then(() => {
+        throw reason
+      })
+    )
+  }
+
+  done(onFulfilled, onRejected) {
+    this
+      .then(onFulfilled, onRejected)
+      .catch(reason => {
+        setTimeout(() => {
+          throw reason
+        })
+      })
   }
 }
 
-Promise.reslove = value => {
+Promise.resolve = value => {
   return new Promise((reslove, reject) => {
     reslove(value)
   })
