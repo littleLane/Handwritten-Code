@@ -32,5 +32,8 @@ const person = new Person(18, 'lane')
 const p1 = inheritObject(person)
 const p2 = inheritObject(person)
 
+p1.roles.push('lane')
+console.log(p2.roles)
+
 // 缺点
 // 和原型链继承一样。每个实例对引用类型属性的修改都会被其他的实例共享
