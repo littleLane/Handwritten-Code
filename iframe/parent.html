@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe id="iframe" src="http://127.0.0.1:8081/index.html"></iframe>
+    <script>
+      // 注意这里一定是在 onload 之后处理，否则 iframe 还没有完成加载，会找不到目标窗口
+      window.onload = function() {
+        const iframe = document.getElementById("iframe");
+
+        // postMessage(data, origin)
+        //    data: 理论上是支持任意类型的数据的，但是为了兼容大部分浏览器这里最好传递字符串
+        //    origin: 字符串参数，指定目标窗口的源，协议 + 域名 + 端口
+        //            可以为 * 表示可以传递给任意的窗口，为 / 表示指定的窗口和当前窗口同源
+        iframe.contentWindow.postMessage("hah", "*");
+      };
+    </script>
+  </body>
+</html>

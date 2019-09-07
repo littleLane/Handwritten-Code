@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>iframe</div>
+    <script>
+      window.onload = function() {
+        window.addEventListener(
+          "message",
+          function(e) {
+            // data：传递来的 message
+            // source：发送消息的窗口对象
+            // origin：发送消息窗口的源（协议+主机+端口号）
+            console.log(e.data);
+          },
+          false
+        );
+      };
+    </script>
+  </body>
+</html>
