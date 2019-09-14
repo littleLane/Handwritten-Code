@@ -19,7 +19,7 @@
   <!-- 元素展示属性设置 -->
   <div class="div display" onclick="alert(2)">
     1、不可以通过 chrome 的鼠标选择框进行选中
-    <div style="display: block">2、元素没有占位</div>
+    <div style="display: block;">2、元素没有占位</div>
     3、影响布局
     4、不可以点击，不可被触及
     5、子元素设置 display 不为 none 也不会显示
@@ -33,11 +33,15 @@
     4、不可以点击，不可被触及
     5、子元素设置 visibility 为 visible 会显示
   </div>
-  <div class="div" onclick="alert('我是测试')">我是测试</div>
+  <div class="div" id="div" style="width: 400px!important" onclick="alert('我是测试')">我是测试</div>
   <style>
     .div {
       height: 300px;
       width: 300px;
+      /* max-width: 300px; */
+      /* transform: scaleX(0.75); */
+      padding: 0 50px;
+      box-sizing: border-box;
       background-color: antiquewhite;
     }
     .opcity {
