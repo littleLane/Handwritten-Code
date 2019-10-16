@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo02</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    canvasRef.style.border = '1px solid #ccc'
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    const rectHeight = 10
+    const rectWidth = 10
+    const { width, height } = canvasRef
+
+    ctx.strokeStyle = '#eee'
+
+    for (let i = 0, len = width / rectWidth; i < len; i++) {
+      // +0.5 用于解决划线粗的问题（偏移坐标）
+      ctx.moveTo(0, rectHeight * i + 0.5)
+      ctx.lineTo(width, rectHeight * i + 0.5)
+      ctx.stroke()
+
+      ctx.moveTo(rectWidth * i + 0.5, 0)
+      ctx.lineTo(rectWidth * i + 0.5, height)
+      ctx.stroke()
+    }
+
+    // 用于指定开始状态
+    ctx.beginPath()
+    ctx.moveTo(100, 400)
+    ctx.lineTo(100, 100)
+    ctx.strokeStyle = '#333'
+    ctx.stroke()
+
+    ctx.moveTo(100, 100)
+    ctx.lineTo(85, 115)
+    ctx.stroke()
+
+    ctx.moveTo(100, 100)
+    ctx.lineTo(115, 115)
+    ctx.stroke()
+
+    ctx.moveTo(100, 400)
+    ctx.lineTo(500, 400)
+    ctx.stroke()
+
+    ctx.moveTo(500, 400)
+    ctx.lineTo(485, 385)
+    ctx.stroke()
+
+    ctx.moveTo(500, 400)
+    ctx.lineTo(485, 415)
+    ctx.stroke()
+
+    const arr = []
+
+    for (let i = 0; i < 35; i++) {
+      arr.push(Math.random() * 280 + 10)
+    }
+
+    for (let i = 0, len = arr.length; i < len; i++) {
+      const item = arr[i]
+
+      if (i === 0) {
+        ctx.moveTo(100 + 10 * (i + 1), 400 - item)
+      } else {
+        ctx.lineTo(100 + 10 * (i + 1), 400 - item)
+      }
+    }
+
+    ctx.stroke()
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo01</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    // 移动画笔，也就是起点到 （100， 100）
+    ctx.moveTo(100, 100)
+
+    // 移动画笔到 （200， 100）
+    ctx.lineTo(200, 100)
+
+    // 移动画笔到 （100， 200）
+    ctx.lineTo(100, 200)
+
+    // 移动画笔到 （100， 100）
+    // ctx.lineTo(100, 100)
+
+    // 闭合路劲
+    ctx.closePath()
+
+    // 设置描边的样式
+    ctx.strokeStyle = 'red'
+
+    // 设置描边的宽度
+    ctx.lineWidth = 4
+
+    // 进行填充
+    ctx.fill()
+
+    // 绘制线条
+    ctx.stroke()
+  </script>
+</body>
+</html>
