@@ -8,6 +8,7 @@
 </head>
 <body>
   <!-- 元素透明度属性设置 -->
+  <p>opcity test case start</p>
   <div class="div opcity" onclick="alert(1)">
     1、可以通过 chrome 的鼠标选择框进行选中
     <div style="opacity: 1">2、布局（占位）还存在，只是看不见</div>
@@ -15,17 +16,10 @@
     4、可以点击，也就是元素可以被触及
     5、子元素设置 opacity 大于 0 也不会显示
   </div>
-
-  <!-- 元素展示属性设置 -->
-  <div class="div display" onclick="alert(2)">
-    1、不可以通过 chrome 的鼠标选择框进行选中
-    <div style="display: block;">2、元素没有占位</div>
-    3、影响布局
-    4、不可以点击，不可被触及
-    5、子元素设置 display 不为 none 也不会显示
-  </div>
+  <p>opcity test case end</p>
 
   <!-- 元素可见属性设置 -->
+  <p>visibility test case start</p>
   <div class="div visibility" onclick="alert(3)">
     1、可以通过 chrome 的鼠标选择框进行选中
     <div style="visibility: visible">2、布局（占位）还存在，只是看不见</div>
@@ -33,6 +27,19 @@
     4、不可以点击，不可被触及
     5、子元素设置 visibility 为 visible 会显示
   </div>
+  <p>visibility test case end</p>
+
+  <!-- 元素展示属性设置 -->
+  <p>display test case start</p>
+  <div class="div display" onclick="alert(2)">
+    1、不可以通过 chrome 的鼠标选择框进行选中
+    <div style="display: block;">2、元素没有占位</div>
+    3、影响布局
+    4、不可以点击，不可被触及
+    5、子元素设置 display 不为 none 也不会显示
+  </div>
+  <p>display test case end</p>
+
   <div class="div" id="div" style="width: 400px!important" onclick="alert('我是测试')">我是测试</div>
   <style>
     .div {
