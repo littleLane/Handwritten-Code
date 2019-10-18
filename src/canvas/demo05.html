@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo05</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    ctx.moveTo(300, 300);
+    ctx.fillStyle = 'purple'; //设置填充颜色为紫色
+    ctx.font = '20px "微软雅黑"'; //设置字体
+    ctx.textBaseline = 'bottom'; //设置字体底线对齐绘制基线
+    ctx.textAlign = 'left'; //设置字体对齐的方式
+    // ctx.strokeText( "left", 450, 400 );
+    ctx.fillText('Top-g', 100, 300); //填充文字
+  </script>
+</body>
+</html>

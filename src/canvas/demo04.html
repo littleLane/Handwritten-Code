@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo04</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    // ctx.moveTo(100, 100)
+    // ctx.arc(100, 100, 100, 0, 30 * Math.PI / 180, true)
+    // ctx.closePath()
+    // ctx.fill()
+    // ctx.stroke()
+
+    const perVal = Math.PI / 180
+    const data = [
+      {
+        name: 'JavaScript',
+        value: '20%'
+      },
+      {
+        name: 'CSS',
+        value: '15%'
+      },
+      {
+        name: 'HTML',
+        value: '25%'
+      },
+      {
+        name: 'HTML',
+        value: '20%'
+      },
+      {
+        name: 'Vue',
+        value: '10%'
+      },
+      {
+        name: 'React',
+        value: '10%'
+      }
+    ]
+
+    ctx.strokeStyle = 'transparent'
+
+    let startAngle = 0
+    let endAngle = 0
+    
+    data.forEach((d, index) => {
+      const angle = parseFloat(d.value) / 100 * 360
+      endAngle += angle
+
+      if (index !== 0) {
+        ctx.beginPath()
+      }
+
+      ctx.moveTo(300, 300)
+      ctx.arc(300, 300, 100, startAngle * perVal, endAngle * perVal)
+      ctx.closePath()
+
+      switch(index) {
+        case 0:
+          ctx.fillStyle = 'blue'
+          break
+        case 1:
+          ctx.fillStyle = 'green'
+          break
+        case 2:
+          ctx.fillStyle = 'gray'
+          break
+        case 3:
+          ctx.fillStyle = 'yellow'
+          break
+        case 4:
+          ctx.fillStyle = 'red'
+          break
+        default:
+          ctx.fillStyle = 'gray'
+          break
+      }
+      
+      ctx.fill()
+      ctx.stroke()
+
+      startAngle = endAngle
+    })
+
+    // ctx.moveTo(300, 300)
+    // ctx.arc(300, 300, 100, -15 * perVal, 92 * perVal)
+    // ctx.closePath()
+    // ctx.fillStyle = 'blue'
+    // ctx.fill()
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.moveTo(300, 300)
+    // ctx.arc(300, 300, 100, 92 * perVal, 237 * perVal)
+    // ctx.closePath()
+    // ctx.fillStyle = 'green'
+    // ctx.fill()
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.moveTo(300, 300)
+    // ctx.arc(300, 300, 100, 237 * perVal, 272 * perVal)
+    // ctx.closePath()
+    // ctx.fillStyle = 'gray'
+    // ctx.fill()
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.moveTo(300, 300)
+    // ctx.arc(300, 300, 100, -15 * perVal, -88 * perVal, true)
+    // ctx.closePath()
+    // ctx.fillStyle = 'red'
+    // ctx.fill()
+    // ctx.stroke()
+  </script>
+</body>
+</html>
