@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo07</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+    const ctxText = canvasRef.getContext('2d')
+
+    const perVal = Math.PI / 180
+    const data = [
+      {
+        name: 'JavaScript',
+        value: '20%',
+        color: 'blue'
+      },
+      {
+        name: 'CSS',
+        value: '15%',
+        color: 'green'
+      },
+      {
+        name: 'HTML',
+        value: '25%',
+        color: 'gray'
+      },
+      {
+        name: 'HTML',
+        value: '20%',
+        color: 'yellow'
+      },
+      {
+        name: 'Vue',
+        value: '10%',
+        color: 'red'
+      },
+      {
+        name: 'React',
+        value: '10%',
+        color: 'gray'
+      }
+    ]
+
+    ctx.strokeStyle = 'transparent'
+
+    let startAngle = 0
+    let endAngle = 0
+    
+    data.forEach((d, index) => {
+      const angle = parseFloat(d.value) / 100 * 360
+      endAngle += angle
+
+      if (index !== 0) {
+        ctx.beginPath()
+      }
+
+      ctx.moveTo(300, 300)
+      ctx.arc(300, 300, 100, startAngle * perVal, endAngle * perVal)
+      ctx.closePath()
+
+      ctx.fillStyle = d.color
+
+      ctx.fill()
+      ctx.stroke()
+
+      const textAngle = startAngle + angle / 2
+      const x = 300 + Math.cos(textAngle * perVal) * 120
+      const y = 300 + Math.sin(textAngle * perVal) * 120
+
+      ctx.save();
+
+      ctx.translate(x, y);
+      ctx.rotate((endAngle - angle / 2) * perVal)
+
+      ctx.fillStyle = d.color //设置填充颜色为紫色
+      ctx.font = '14px "微软雅黑"'
+
+      ctx.fillText(d.name, 0, 0) //填充文字
+      ctx.restore();
+
+      startAngle = endAngle
+    })
+  </script>
+</body>
+</html>
