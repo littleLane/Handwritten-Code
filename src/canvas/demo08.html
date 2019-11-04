@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo08</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="600" height="600">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    const img = new Image()
+    img.src = './test.jpg'
+    img.onload = function() {
+      ctx.drawImage(img, 100, 100, 400, 400)
+    }
+  </script>
+</body>
+</html>
