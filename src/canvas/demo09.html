@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo09</title>
+</head>
+<body>
+  <canvas id="canvasRef" width="1000" height="1000">
+    您的浏览器不支持 canvas，请升级您的浏览器！
+  </canvas>
+  <script>
+    // 获取 canvas demo 节点
+    const canvasRef = document.getElementById('canvasRef')
+
+    // 获取 canvas 上下文对象
+    const ctx = canvasRef.getContext('2d')
+
+    let frameIndex = 0
+    const itemAspectRatio = 1472 / 8 / 325
+    const itemRelWidth = 80
+    const itemRelHeight = itemRelWidth / itemAspectRatio
+
+    const img = new Image()
+    img.src = './frame.jpg'
+    img.onload = function() {
+      setInterval(function() {
+        ctx.clearRect(0, 0, canvasRef.width, canvasRef.height)
+        ctx.drawImage(img, itemRelWidth * frameIndex, 0, itemRelWidth, 325, 100, 100, itemRelWidth * 2, 300 * 2)
+        frameIndex++
+        frameIndex %= 8
+      }, 300)
+    }
+  </script>
+</body>
+</html>
