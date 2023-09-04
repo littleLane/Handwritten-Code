@@ -1,17 +1,17 @@
 function intersect(...args) {
   if (args.length === 0) {
-    return []
+    return [];
   }
 
   if (args.length === 1) {
-    return args[0]
+    return args[0];
   }
 
   return args.reduce((result, arg) => {
-    return result.filter(item => arg.includes(item))
-  })
+    return result.filter((item) => arg.includes(item));
+  });
 }
 
-const result = intersect([1, 2], [1, 2, 3], [1, 2], [3])
+const result = intersect([1], [1, 2, 3], [1, 2]);
 
-console.log(result)
+console.log(result);
