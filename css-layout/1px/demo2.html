@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>meta —— 1px</title>
-</head>
-<body>
-  <p style="font-size: 0.05rem">通过 window.devicePixelRatio 获取屏幕像素比，然后将 meta 的 initial-scale 设置为 1/window.devicePixelRatio 使页面呈现一定的缩放比例。</p>
-  <p style="font-size: 0.05rem">将元素除 border 样式之外的样式属性的单位设置为计算得到的 rem 值，接着设置 html 的 fontSize 为 cliemtWidth * dpr，将 rem 转换为对应的 px 值</p>
-  <div class="div divpx"></div>
-  <style>
-    .div {
-      position: relative;
-      width: 0.3125rem;
-      height: 0.3125rem;
-      /* width: 100px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>meta —— 1px</title>
+  </head>
+  <body>
+    <p style="font-size: 0.05rem">
+      通过 window.devicePixelRatio 获取屏幕像素比，然后将 meta 的 initial-scale
+      设置为 1/window.devicePixelRatio 使页面呈现一定的缩放比例。
+    </p>
+    <p style="font-size: 0.05rem">
+      将元素除 border 样式之外的样式属性的单位设置为计算得到的 rem 值，接着设置
+      html 的 fontSize 为 cliemtWidth * dpr，将 rem 转换为对应的 px 值
+    </p>
+    <div class="div divpx"></div>
+    <style>
+      .div {
+        position: relative;
+        width: 0.3125rem;
+        height: 0.3125rem;
+        /* width: 100px;
       height: 100px; */
-      background-color: antiquewhite;
-      border-top: 1px solid #000; 
-    }
-  </style>
-  <script>
-    const dpr = window.devicePixelRatio
-    const scale = 1 / dpr
-    const cliemtWidth = document.documentElement.clientWidth
-    document.querySelector('meta[name="viewport"]').setAttribute('content', `width=device-width, initial-scale=${scale}`)
-    document.querySelector('html').style.fontSize = `${cliemtWidth * dpr}px`
-  </script>
-</body>
+        background-color: antiquewhite;
+        border-top: 1px solid #000;
+      }
+    </style>
+    <script>
+      const dpr = window.devicePixelRatio;
+      const scale = 1 / dpr;
+      const cliemtWidth = document.documentElement.clientWidth;
+      document
+        .querySelector('meta[name="viewport"]')
+        .setAttribute("content", `width=device-width, initial-scale=${scale}`);
+      document.querySelector("html").style.fontSize = `${
+        (cliemtWidth * dpr) / 10
+      }px`;
+    </script>
+  </body>
 </html>
