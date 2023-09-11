@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Broadcast Channel Example</title>
+  </head>
+  <body>
+    <h2>Broadcast Channel Example</h2>
+    <div id="result">Result: <span></span></div>
+
+    <script>
+      // Create a new Broadcast Channel with name
+      const channel = new BroadcastChannel("resultChannel");
+      const resultEl = document.querySelector("#result span");
+
+      // Option 1 Base
+      // Listen for messages from the channel
+      channel.onmessage = (e) => {
+        resultEl.innerText = e.data;
+      };
+
+      // Option 2 - Using addEventListener
+      // channel.addEventListener('message', e => {
+      //    resultEl.innerText = e.data;
+      // });
+
+      // Listen for changes on the input
+      const inputEl = document.createElement("input");
+      inputEl.type = "text";
+
+      inputEl.addEventListener("input", (e) => {
+        const val = e.target.value;
+
+        // Broadcast the change to other tabs
+        channel.postMessage(val);
+        resultEl.innerText = val;
+      });
+
+      // Insert the input element
+      document.body.appendChild(inputEl);
+    </script>
+  </body>
+</html>
